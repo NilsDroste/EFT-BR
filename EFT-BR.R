@@ -55,7 +55,7 @@ df <- pdata.frame(df, index = c("ID", "year"))
 #check panel df and write an html summary table
 str(df)
 summary(df)
-stargazer(df[c("tot","fed","sta","mun","icms_e","agr","ind","ser","pop","inc")], type = "html", title="Descriptive statistics", digits=1, out="summary2.html",covariate.labels=c("total protected area share of state territory in per cent (tot)","federal protected area share of state territory in per cent (fed)","state protected area share of state territory in per cent (sta)","municipal protected area share of state territory in per cent (mun)","ICMS-E dummy (icmse)","share of valued added by agriculture in per cent (agr)","share of valued added by industry in per cent (ser)","share of valued added by service in per cent (ind)","population density cap/km² (pop)","GDP per capita, R$ in thousands (inc)"))
+stargazer(df[c("tot","fed","sta","mun","icms_e","agr","ind","ser","pop","inc")], type = "html", title="Descriptive statistics", digits=1, out="summary.html",covariate.labels=c("total protected area share of state territory in per cent (tot)","federal protected area share of state territory in per cent (fed)","state protected area share of state territory in per cent (sta)","municipal protected area share of state territory in per cent (mun)","ICMS-E dummy (icmse)","share of valued added by agriculture in per cent (agr)","share of valued added by industry in per cent (ser)","share of valued added by service in per cent (ind)","population density cap/km² (pop)","GDP per capita, R$ in thousands (inc)"))
 
 #constant = 0.5 times the minimal observed value #required for log transformations of variables /w 0
 c<-min(df$mun[which(df$mun > 0)])*0.5
