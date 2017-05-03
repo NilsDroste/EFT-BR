@@ -161,7 +161,7 @@ plot(lev, main="leverage")
 #output table
 rob.se<-list(m1.tot.rob[,2],m2.tot.rob[,2],m3.tot.rob[,2],m4.tot.rob[,2])
 rob.p<-list(m1.tot.rob[,4],m2.tot.rob[,4],m3.tot.rob[,4],m4.tot.rob[,4])
-stargazer(m1.tot, m2.tot, m3.tot, m4.tot, dep.var.labels="ln of protected area share in percent of total area", p=rob.p, se=rob.se, type="html", out="table_fed.htm")
+stargazer(m1.tot, m2.tot, m3.tot, m4.tot, dep.var.labels="ln of protected area share in percent of total area", p=rob.p, se=rob.se, type="html", out="table_fed.html")
 
 # municipal regressions ----------------------------------------------------
 library(plm)
