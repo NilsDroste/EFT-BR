@@ -88,7 +88,7 @@ m1.tot<- plm(log(tot)~icms_e+log(agr)+log(ind)+log(pop)+log(inc)+arpa, data=df, 
 summary(m1.tot)
 pbgtest(m1.tot) # null is that there is no serial correlation, p < 0.5 <- serial correlation
 pcdtest(m1.tot) # null is that there is no cross-sectional dependence , p < 0.5 <- cross-sectional dependence
-m1.tot.rob<-coeftest(m1.tot, vcov=function(x) vcovSCC(x, type="HC3", maxlag=10)); m1.tot.rob
+m1.tot.rob<-coeftest(m1.tot, vcov=function(x) vcovSCC(x, type="HC3", maxlag=2)); m1.tot.rob
 
 # m1 + biomes (model 2)
 m2.tot <- plm(log(tot)~icms_e+log(agr)+log(ind)+log(pop)+log(inc)+arpa+ama+cer+caa+mat+pan+pam,df, index=c("ID", "year"), model="random", effect="individual", random.method = "swar")
@@ -161,7 +161,7 @@ plot(lev, main="leverage")
 #output table
 rob.se<-list(m1.tot.rob[,2],m2.tot.rob[,2],m3.tot.rob[,2],m4.tot.rob[,2])
 rob.p<-list(m1.tot.rob[,4],m2.tot.rob[,4],m3.tot.rob[,4],m4.tot.rob[,4])
-stargazer(m1.tot, m2.tot, m3.tot, m4.tot, dep.var.labels="ln of protected area share in percent of total area", p=rob.p, se=rob.se, type="html", out="table_fed.html")
+stargazer(m1.tot, m2.tot, m3.tot, m4.tot, dep.var.labels="ln of protected area share in percent of total area", p=rob.p, se=rob.se, type="html", out="table_tot.html")
 
 # municipal regressions ----------------------------------------------------
 library(plm)
